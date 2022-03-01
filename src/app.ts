@@ -1,7 +1,7 @@
 import express from "express";
 import init from "./utils/init";
-require("dotenv").config({});
-
+import * as dotenv from "dotenv";
+dotenv.config({});
 const app = express();
 
 app.use(express.urlencoded({ extended: false }));
