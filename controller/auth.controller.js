@@ -11,7 +11,7 @@ module.exports = {
       user.password = await bcrypt.hash(req.body.password, salt);
 
       await user.save();
-      const token = createToken(JSON.stringify(user));
+      const token = createToken(user);
       user._doc.password = undefined;
       res.status(200).send({ success: true, user: user._doc, token });
     } catch (error) {
@@ -35,7 +35,7 @@ module.exports = {
           .status(401)
           .send({ success: false, msg: "Incorrect password" });
 
-      const token = createToken(JSON.stringify(user));
+      const token = createToken(user);
       user._doc.password = undefined;
       res.status(200).send({ success: true, user: user._doc, token });
     } catch (error) {
