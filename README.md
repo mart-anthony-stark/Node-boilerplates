@@ -3,3 +3,4 @@
 .env
 
 - PORT
+- DB_URI
