@@ -14,7 +14,7 @@
     "boillerplate",
     "template"
   ],
-  "author": "Mart Salazar",
+  "author": "",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^16.0.0",
