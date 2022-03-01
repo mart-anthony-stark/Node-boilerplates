@@ -1,0 +1,24 @@
+{
+  "name": "node-boilerplate",
+  "version": "1.0.0",
+  "description": "Templates for vanilla node, express, fastify",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "node",
+    "express",
+    "fastify",
+    "boillerplate",
+    "template"
+  ],
+  "author": "Mart Salazar",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.3",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.2.4"
+  }
+}
