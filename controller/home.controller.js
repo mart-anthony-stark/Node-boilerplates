@@ -1,5 +1,5 @@
 module.exports = {
-    getHome = (req,res) => {
-        res.send('Home route')
-    }
-}
+  getHome: (req, res) => {
+    res.send("Home route");
+  },
+};
