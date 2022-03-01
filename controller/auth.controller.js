@@ -4,15 +4,16 @@ const bcrypt = require("bcryptjs");
 
 module.exports = {
   signup: async (req, res) => {
+    // console.log(req.body);
     try {
       const user = new User(req.body);
       const salt = await bcrypt.genSalt(10);
-      user.password = await bcrypt.hash(req.password, salt);
+      user.password = await bcrypt.hash(req.body.password, salt);
 
       await user.save();
       const token = createToken(JSON.stringify(user));
       user._doc.password = undefined;
-      reply.status(200).send({ success: true, user: user._doc, token });
+      res.status(200).send({ success: true, user: user._doc, token });
     } catch (error) {
       res.status(500).send(error);
     }
@@ -24,19 +25,19 @@ module.exports = {
         $or: [{ username: email }, { email }],
       });
       if (!user)
-        return reply
+        return res
           .status(404)
           .send({ success: false, msg: "Account not found" });
 
       const validPassword = await bcrypt.compare(password, user.password);
       if (!validPassword)
-        return reply
+        return res
           .status(401)
           .send({ success: false, msg: "Incorrect password" });
 
       const token = createToken(JSON.stringify(user));
       user._doc.password = undefined;
-      reply.status(200).send({ success: true, user: user._doc, token });
+      res.status(200).send({ success: true, user: user._doc, token });
     } catch (error) {
       res.status(500).send(error);
     }
