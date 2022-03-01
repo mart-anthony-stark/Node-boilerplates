@@ -1,4 +1,5 @@
 const User = require("../models/User.model");
+const { createToken } = require("../utils/token");
 const bcrypt = require("bcryptjs");
 
 module.exports = {
