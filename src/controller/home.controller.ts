@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 
-module.exports = {
+export default {
   getHome: (req: Request, res: Response) => {
     res.send("Home route");
   },
