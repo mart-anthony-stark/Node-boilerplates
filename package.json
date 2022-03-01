@@ -9,12 +9,9 @@
   },
   "keywords": [
     "node",
-    "express",
-    "fastify",
-    "boillerplate",
-    "template"
+    "express"
   ],
-  "author": "Mart Salazar",
+  "author": "",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
