@@ -17,4 +17,28 @@ module.exports = {
       res.status(500).send(error);
     }
   },
+  login: async (req, res) => {
+    const { email, password } = req.body;
+    try {
+      const user = await User.findOne({
+        $or: [{ username: email }, { email }],
+      });
+      if (!user)
+        return reply
+          .status(404)
+          .send({ success: false, msg: "Account not found" });
+
+      const validPassword = await bcrypt.compare(password, user.password);
+      if (!validPassword)
+        return reply
+          .status(401)
+          .send({ success: false, msg: "Incorrect password" });
+
+      const token = createToken(JSON.stringify(user));
+      user._doc.password = undefined;
+      reply.status(200).send({ success: true, user: user._doc, token });
+    } catch (error) {
+      res.status(500).send(error);
+    }
+  },
 };
