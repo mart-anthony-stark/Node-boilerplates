@@ -1,9 +1,10 @@
-import express from "express";
+import express, { Application } from "express";
 import init from "./utils/init";
 import * as dotenv from "dotenv";
 import homeRouter from "./routes/home.route";
 dotenv.config({});
-const app = express();
+
+const app: Application = express();
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
