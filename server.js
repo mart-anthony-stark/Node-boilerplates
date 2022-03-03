@@ -11,8 +11,7 @@ app.use(express.json());
 app.use("/", require("./routes/home.route"));
 app.use("/admin", (req, res) => {
   db.query("SELECT * from admin", (err, rows) => {
-    if (err) console.log(err);
-    console.log(rows);
+    if (err) return res.send(err);
     res.send(rows);
   });
 });
