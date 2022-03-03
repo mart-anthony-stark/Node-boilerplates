@@ -8,7 +8,7 @@ const app = express();
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-app.use("/", require("./routes/home.route"));
+app.use("/users", require("./routes/home.route"));
 app.use("/admin", (req, res) => {
   db.query("SELECT * from admin", (err, rows) => {
     if (err) return res.send(err);
