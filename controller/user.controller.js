@@ -1,4 +1,4 @@
-const database = require("../utils/database");
+const db = require("../utils/database");
 
 module.exports = {
   getHome: (req, res) => {
