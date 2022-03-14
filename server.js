@@ -1,6 +1,6 @@
-const fastify = require("fastify")({ logger: true });
+const fastify = require("fastify")({ logger: false });
 
-
+fastify.register(require("./routes"));
 
 const start = async () => {
   try {
