@@ -1,0 +1,20 @@
+{
+  "name": "templates",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev":"nodemon server.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mart-anthony-stark/Node-boilerplates.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mart-anthony-stark/Node-boilerplates/issues"
+  },
+  "homepage": "https://github.com/mart-anthony-stark/Node-boilerplates#readme"
+}
