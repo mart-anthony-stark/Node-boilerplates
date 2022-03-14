@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev":"nodemon server.js",
+    "dev": "nodemon server.js",
     "start": "node server.js"
   },
   "repository": {
@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/mart-anthony-stark/Node-boilerplates/issues"
   },
-  "homepage": "https://github.com/mart-anthony-stark/Node-boilerplates#readme"
+  "homepage": "https://github.com/mart-anthony-stark/Node-boilerplates#readme",
+  "dependencies": {
+    "fastify": "^3.27.4"
+  }
 }
