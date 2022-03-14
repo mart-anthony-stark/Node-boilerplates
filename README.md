@@ -1,5 +1,0 @@
-## Express boilerplate
-
-.env
-
-- PORT
