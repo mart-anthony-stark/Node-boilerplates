@@ -1,7 +1,9 @@
+const mongoose = require('mongoose')
 
 const start = async (fastify) => {
   try {
     await fastify.listen(3000);
+    await mongoose.connect(process.env.DB_URI, )
   } catch (err) {
     fastify.log.error(err);
     process.exit(1);
