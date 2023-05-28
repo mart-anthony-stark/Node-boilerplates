@@ -3,6 +3,11 @@ const mongoose = require("mongoose");
 
 require("dotenv").config();
 
+/**
+ * This is where the build configuration code resides. Runs before listening/running the server
+ * Setup middlewares
+ * @returns <Promise>Fastify app;
+ */
 async function build() {
   const app = Fastify();
 
