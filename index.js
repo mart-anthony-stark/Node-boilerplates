@@ -1,4 +1,5 @@
 const build = require("./fastify.init");
+const { requireAuth } = require("./middlewares");
 const PORT = process.env.PORT || 3000;
 let fastify;
 
@@ -13,7 +14,13 @@ build().then((app) => {
   });
 
   //   Register Routes
+  fastify.register(require("./routes/auth.route"), { prefix: "/auth" });
+
   fastify.get("/", (req, reply) => {
     reply.send({ msg: "hello" });
+  });
+
+  fastify.get("/protected", { onRequest: [requireAuth] }, (req, reply) => {
+    reply.code(200).send({ msg: "Authenticated", user: req.user });
   });
 });
