@@ -10,6 +10,6 @@ export const catcher = (fn, cb) => (request, response) => {
       cb(request, response);
       return;
     }
-    response.status(400).send(err);
+    response.status(400).send({ message: err.message });
   });
 };
