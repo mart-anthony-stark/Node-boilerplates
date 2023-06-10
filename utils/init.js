@@ -7,6 +7,7 @@ const init = async (app) => {
     console.log(`Server running on port ${PORT}`);
   });
 
+  mongoose.set("strictQuery", false);
   await mongoose.connect(process.env.DB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
