@@ -1,7 +1,8 @@
 const router = require("express").Router();
 const authController = require("../controllers/auth.controller");
+const { catcher } = require("./../utils/helper");
 
-router.post("/register", authController.signup);
-router.post("/login", authController.login);
+router.post("/register", catcher(authController.signup));
+router.post("/login", catcher(authController.login));
 
 module.exports = router;
