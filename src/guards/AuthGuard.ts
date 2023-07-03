@@ -9,7 +9,7 @@ interface IJwtDecodedToken {
   body: Object;
 }
 
-const AuthGuard = (req: IUserRequest, res: Response, next: NextFunction) => {
+const AuthGuard = (req: Request, res: Response, next: NextFunction) => {
   try {
     const authHeader = req.headers.authorization;
     if (!authHeader)
@@ -30,8 +30,8 @@ const AuthGuard = (req: IUserRequest, res: Response, next: NextFunction) => {
           });
         }
 
-        req.user = body;
-        req.token = token;
+        (req as IUserRequest).user = body;
+        (req as IUserRequest).token = token;
         next();
       }
     );
@@ -42,3 +42,5 @@ const AuthGuard = (req: IUserRequest, res: Response, next: NextFunction) => {
     });
   }
 };
+
+export default AuthGuard;

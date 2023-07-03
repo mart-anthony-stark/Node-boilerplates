@@ -4,6 +4,6 @@ export interface IGetUserAuthInfoRequest extends Request {
 }
 
 export interface IUserRequest extends Request {
-  user: unknown;
+  user: any;
   token: string;
 }
