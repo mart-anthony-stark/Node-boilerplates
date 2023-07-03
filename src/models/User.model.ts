@@ -1,6 +1,13 @@
-const mongoose = require("mongoose");
+import { Schema, model } from "mongoose";
+import { DocumentResult } from "../types";
 
-const userSchema = new mongoose.Schema(
+export interface IUser extends DocumentResult<IUser> {
+  username: string;
+  email: string;
+  password?: string;
+  role?: string;
+}
+const userSchema = new Schema<IUser>(
   {
     username: { type: String, required: true, unique: true },
     email: { type: String, required: true, unique: true },
@@ -10,4 +17,4 @@ const userSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-export default mongoose.model("User", userSchema);
+export default model<IUser>("User", userSchema);

@@ -1,6 +1,12 @@
-const mongoose = require("mongoose");
+import { Schema, model } from "mongoose";
+import { DocumentResult } from "../types";
 
-const PostSchema = new mongoose.Schema(
+export interface IPost extends DocumentResult<IPost> {
+  title: string;
+  body: string;
+}
+
+const PostSchema = new Schema<IPost>(
   {
     title: {
       type: String,
@@ -14,4 +20,4 @@ const PostSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-export default mongoose.model("Post", PostSchema);
+export default model<IPost>("Post", PostSchema);
