@@ -12,4 +12,4 @@ init(app);
 
 app.use("/auth", authRoute);
 import postRoute from "./routes/posts.route";
-app.use("/posts", postRoute);
+app.use("/post", postRoute);
