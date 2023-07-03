@@ -13,6 +13,7 @@ export const catcher =
         cb(request, response);
         return;
       }
+      console.log(err);
       response.status(400).send({ message: err.message });
     });
   };
