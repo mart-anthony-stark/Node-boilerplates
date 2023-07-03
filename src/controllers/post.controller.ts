@@ -19,9 +19,10 @@ export default {
     const post = await Post.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
     });
-    return post;
+    res.send(post);
   },
   deleteOne: async (req: Request, res: Response) => {
     const post = await Post.deleteOne({ _id: req.params.id });
+    res.send(post);
   },
 };
