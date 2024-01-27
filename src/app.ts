@@ -10,3 +10,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 init(app);
+
+import UserController from "./app/user/user.controller";
+app.use("/user", UserController);
