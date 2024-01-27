@@ -1,3 +1,6 @@
 .env
+.env.production
+*.env
+!.env.template
 node_modules
 package-lock.json
